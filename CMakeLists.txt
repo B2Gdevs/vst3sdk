@@ -24,7 +24,7 @@ include(SMTG_VST3_SDK)
 # SDK Project
 # -------------------------------------------------------------------------------
 project(vstsdk
-    VERSION 3.8.0
+    VERSION 3.8.1
     DESCRIPTION "Steinberg VST 3 Software Development Kit"
     HOMEPAGE_URL "https://www.steinberg.net"
 )
@@ -71,11 +71,7 @@ smtg_create_public_sdk_hosting_target()
 set(VST_SDK TRUE) # used for pluginterfaces and public.sdk modules which provides only a subset of them for VST-SDK
 add_subdirectory(public.sdk/source/vst/interappaudio)
 
-#---Add Wrappers (AU, AAX)-----------------------
-if (NOT SMTG_ENABLE_AUV2_BUILDS)
-    add_subdirectory(public.sdk/source/vst/auwrapper)
-endif()
-
+#---Add Wrapper (AAX)----------------------------
 if(NOT "${SMTG_AAX_SDK_PATH}" STREQUAL "")
     add_subdirectory(public.sdk/source/vst/aaxwrapper)
 endif()
